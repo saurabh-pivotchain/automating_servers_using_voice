@@ -1,0 +1,13 @@
+ - hosts: localhost
+   tasks: 
+     - name: launch ec2 instance
+       ec2:
+         aws_access_key: AKIAIOWNNN***
+         aws_secret_key: 3nqAwY6zNkvkrTXuVKgWslCUiv8I***
+         key_name: key
+         instance_type: t2.micro
+         image: ami-00eb20669e0990cb4
+         wait: yes
+         assign_public_ip: yes
+         region: us-east-1
+         vpc_subnet_id: subnet-b7b4eed0

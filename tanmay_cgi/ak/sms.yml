@@ -1,0 +1,11 @@
+- hosts: localhost
+  vars_files:
+    - smsfrom.yml
+  tasks:
+   - name: Sending mail
+     twilio:
+        msg: "{{message}}"
+        account_sid: AC23bcbd6ad000cbfb1178**
+        auth_token: e08aea4d88a4015279ef*****
+        from_number: "{{from}}"
+        to_number: "{{to}}"

@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars_files:
+    - maildata.yml
+  tasks:
+   - name: Sending mail
+     mail:
+       host: smtp.gmail.com
+       port: 587
+       username: "{{ username }}"
+       password: "{{ password }}"
+       to: "{{ recipient }}"
+       subject: "{{ subject }}"
+       body: "{{ message }}"
