@@ -1,0 +1,117 @@
+<html>
+<head>
+<link rel="stylesheet" href="Bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-grid.min.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap-reboot.min.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.css.map">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css.map">
+    <script src="Bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.js.map"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="Bootstrap/js/bootstrap.js"></script>
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<!-- HTML5 Speech Recognition API -->
+<!-- CSS Styles -->
+<style>
+h1{
+color: #00E6E6
+}
+    body
+     .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
+  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
+ul li {
+  content: "\2022";
+  color: "#00E6E6";
+}  
+</style>
+</head>
+<body  background="wp.png" >
+        <center><h1 ><u>WELCOME TO JARVIS</u></h1></center>
+<!-- Search Form -->
+
+<br/><br/><br/>
+
+<div style="padding-left:450px"> 
+<form action='http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py'>
+<form name="myform" method="post" onsubmit="return validateform()" action ="http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py;">
+  
+    <div class="input">
+    <label for="name"><font color="#00E6E6">SPEAK</font></label>
+    <input type="text" class="form-control" name= text style="width:50%" id="name" placeholder="input"><br/>
+<img src="mike.jpg" width="40px" onclick="startDictation('name')">
+ 
+<br/>
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location.href='http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py';">Submit</button>
+<br/>
+<br/>
+
+  </div>
+</form>
+</div>
+</body>
+
+<script>
+    
+     function startDictation(x) {
+         alert("hello");
+  
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+
+      var recognition = new webkitSpeechRecognition();
+
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.lang = "en-Us";
+      recognition.start();
+      recognition.onresult = function(e) {
+          if(x=="phone" || x=="aadhar")
+              {
+        document.getElementById(x).value = parseInt(e.results[0][0].transcript);
+        recognition.stop();
+        document.getElementById('labnol').submit();
+              }
+          else{ 
+              document.getElementById(x).value= e.results[0][0].transcript;
+        recognition.stop();
+        document.getElementById('labnol').submit();
+          }
+       };
+
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+
+    }
+  
+  
+  }
+    </script>
+
+ <!--
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<h1><center><u>IF YOU DON'T WANT TO TALK THEN JUST SELECT THE OPTION</u></center></h1>
+<div align="center">
+<ul style="list-style-type:disc;">
+<a href=""><li><font size="5" color="#00E6E6">Useradd</font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">docker show</font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">Docker add </font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">machine learing train</font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">send SMS</font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">S3 launch</font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">EC2 launch </font><li></a>
+<a href=""><li><font size="5" color="#00E6E6">send mail</font><li></a>      
+</ul>
+</div> -->
+</html>
