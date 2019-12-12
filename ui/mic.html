@@ -41,10 +41,9 @@ ul li {
 
 <br/><br/><br/>
 
-<div style="padding-left:450px"> 
-<form action='http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py'>
-<form name="myform" method="post" onsubmit="return validateform()" action ="http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py;">
-  
+<div style="padding-left:450px">
+<form action='http://192.168.43.76/cgi-bin/tanmay_cgi/taken.py'>
+<form id = "labnol" name="myform" method="post" onsubmit="return validateform()" action ="http://192.168.43.76/cgi-bin/tanmay_cgi/taken.py;">
     <div class="input">
     <label for="name"><font color="#00E6E6">SPEAK</font></label>
     <input type="text" class="form-control" name= text style="width:50%" id="name" placeholder="input"><br/>
@@ -52,7 +51,7 @@ ul li {
  
 <br/>
   </div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location.href='http://192.168.29.76/cgi-bin/tanmay_cgi/taken.py';">Submit</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="window.location.href='http://192.168.43.76/cgi-bin/tanmay_cgi/taken.py';">Submit</button>
 <br/>
 <br/>
 
@@ -62,10 +61,10 @@ ul li {
 </body>
 
 <script>
-    
-     function startDictation(x) {
-         alert("hello");
-  
+   
+    function startDictation(x) {
+         alert("Listening....");
+ 
     if (window.hasOwnProperty('webkitSpeechRecognition')) {
 
       var recognition = new webkitSpeechRecognition();
@@ -75,27 +74,20 @@ ul li {
 
       recognition.lang = "en-Us";
       recognition.start();
+
       recognition.onresult = function(e) {
-          if(x=="phone" || x=="aadhar")
-              {
         document.getElementById(x).value = parseInt(e.results[0][0].transcript);
         recognition.stop();
         document.getElementById('labnol').submit();
-              }
-          else{ 
-              document.getElementById(x).value= e.results[0][0].transcript;
-        recognition.stop();
-        document.getElementById('labnol').submit();
-          }
-       };
+      };
 
       recognition.onerror = function(e) {
         recognition.stop();
       }
 
     }
-  
-  
+ 
+ 
   }
     </script>
 
